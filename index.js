@@ -34,18 +34,3 @@ let reduceToAnyTrue = (sourceArray) => {
 
 	return !!sourceArray.reduce(reducer) === true ? true : false;
 };
-
-// array[x, y,z]
-// i=0
-// ifAnyFalse = false
-// while i< array.length
-//     if arary[i] == false
-//         ifAnyFalse = true
-//     end
-//     i++
-// end
-// if ifAnyFalse = true
-//     return false
-// else
-//     return true
-// end
