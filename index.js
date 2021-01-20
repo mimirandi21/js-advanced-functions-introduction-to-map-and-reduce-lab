@@ -1,22 +1,41 @@
 let mapToNegativize = (sourceArray) => {
-	return sourceArray.map((x) => x * -1);
+	let arr = [];
+	for (let i = 0; i < sourceArray.length; i++) {
+		arr.push(-1 * sourceArray[i]);
+	}
+	return arr;
 };
 
 let mapToNoChange = (sourceArray) => {
-	return sourceArray.map((x) => x);
+	let arr = [];
+	for (let i = 0; i < sourceArray.length; i++) {
+		arr.push(sourceArray[i]);
+	}
+	return arr;
 };
 
 let mapToDouble = (sourceArray) => {
-	return sourceArray.map((x) => x * 2);
+	let arr = [];
+	for (let i = 0; i < sourceArray.length; i++) {
+		arr.push(2 * sourceArray[i]);
+	}
+	return arr;
 };
 
 let mapToSquare = (sourceArray) => {
-	return sourceArray.map((x) => x * x);
+	let arr = [];
+	for (let i = 0; i < sourceArray.length; i++) {
+		arr.push(sourceArray[i] * sourceArray[i]);
+	}
+	return arr;
 };
 
 let reduceToTotal = (sourceArray, startingPoint = 0) => {
-	let reducer = (acc, cv) => acc + cv;
-	return sourceArray.reduce(reducer, startingPoint);
+	let total = startingPoint;
+	for (let i = 0; i < sourceArray.length; i++) {
+		total = total + sourceArray[i];
+	}
+	return total;
 };
 
 let reduceToAllTrue = (sourceArray) => {
@@ -25,12 +44,12 @@ let reduceToAllTrue = (sourceArray) => {
 		!!sourceArray[i] === true ? true : (ifAnyFalse = true);
 	}
 	return ifAnyFalse === true ? false : true;
-	// let reducer = (acc, cv) => acc + cv;
-	// return !!sourceArray.reduce(reducer) === true ? true : false;
 };
 
 let reduceToAnyTrue = (sourceArray) => {
-	let reducer = (acc, cv) => acc + cv;
-
-	return !!sourceArray.reduce(reducer) === true ? true : false;
+	let ifAnyTrue = false;
+	for (let i = 0; i < sourceArray.length; i++) {
+		!!sourceArray[i] === true ? (ifAnyTrue = true) : false;
+	}
+	return ifAnyTrue === true ? true : false;
 };
